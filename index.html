@@ -71,11 +71,13 @@
                     
                     console.log(lista)
                 }else if(pushed == "="){
-                    if(arrayResult.slice(-2) = "+"){
+                    if(arrayResult.slice(-2, -1)[0] = "+"){
                         number = Number(lista.join(''));
                         arrayResult.push(number);
-                        console.log(arrayResult[0] + arrayResult.slice(-1));
-                        result.textContent = ''
+                        result.textContent = arrayResult[0] + arrayResult.slice(-1)[0]
+                        console.log(typeof arrayResult[0])
+                        console.log(typeof arrayResult[0])
+                        arrayResult =[]; 
                     }
                 }
             }else{
