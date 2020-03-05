@@ -44,48 +44,6 @@
                 <div class="button digit">=</div>
         </section>
     </main>
-    <script>
-        const botones = document.querySelectorAll('.button');
-        const inputs = document.querySelector('.inputs');
-        const signs = document.querySelectorAll('.digit');
-        const result = document.querySelector('.result');
-
-        let lista = [];
-        let arrayResult = [];
-
-        botones.forEach(boton => boton.addEventListener('click', (e)=>{
-            let pushed = boton.textContent;
-
-            if(pushed =="="||pushed =="+"||pushed =="÷"||pushed =="del"||pushed =="+/-"||pushed =="x"||pushed =="%"||pushed =="C"){
-                if(lista.length==0){
-                    return;
-                }else if(pushed == "+"){
-                    inputs.textContent += pushed;
-                    console.log(pushed)
-                    number = Number(lista.join(''));
-                    result.textContent = number;
-                    arrayResult.push(number);
-                    arrayResult.push('+');
-                    console.log(arrayResult)
-                    lista = [];
-                    
-                    console.log(lista)
-                }else if(pushed == "="){
-                    if(arrayResult.slice(-2, -1)[0] = "+"){
-                        number = Number(lista.join(''));
-                        arrayResult.push(number);
-                        result.textContent = arrayResult[0] + arrayResult.slice(-1)[0]
-                        console.log(typeof arrayResult[0])
-                        console.log(typeof arrayResult[0])
-                        arrayResult =[]; 
-                    }
-                }
-            }else{
-                inputs.textContent += pushed;
-                lista.push(pushed)
-            }
-            }));
-        
-    </script>
+    <script src="./script.js"></script> 
 </body>
 </html>

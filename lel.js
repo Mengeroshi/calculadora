@@ -1,5 +1,4 @@
-let list = [1,2,3,4]
+let str = 'Hello';
 
-console.log(list.slice(-2, -1)[0])
-
-//en numeros pares estan los operaciones
+str = str.substring(-1);
+console.log(str);
