@@ -56,10 +56,10 @@ main{
 .button{
     border: 1px solid black;
     display: flex;
-    max-width: 87.2px;
-    max-height: 87.2px;
-    min-width: 87.2px;
-    min-height: 87.2px;
+    max-width: 87.1px;
+    max-height: 87.1px;
+    min-width: 87.1px;
+    min-height: 87.1px;
     font-size: 40px;
     justify-content: center;
     align-items: center;

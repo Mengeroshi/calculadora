@@ -14,16 +14,16 @@
         </section>
         <section class="buttons">
             <div class="column">
-                <div class="button">C</div>
-                <div class="button">+/-</div>
-                <div class="button">%</div>
-                <div class="button">÷</div>
+                <div class="button digit">C</div>
+                <div class="button digit">+/-</div>
+                <div class="button digit">%</div>
+                <div class="button digit">÷</div>
             </div>
             <div class="column">
                 <div class="button">7</div>
                 <div class="button">8</div>
                 <div class="button">9</div>
-                <div class="button">x</div>
+                <div class="button digit">x</div>
             </div>
             <div class="column">
                 <div class="button">4</div>
@@ -35,15 +35,55 @@
                 <div class="button">1</div>
                 <div class="button">2</div>
                 <div class="button">3</div>
-                <div class="button">+</div>
+                <div class="button digit">+</div>
             </div>
             <div class="column">
                 <div class="button">0</div>
                 <div class="button">.</div>
-                <div class="button">del</div>
-                <div class="button">=</div>
+                <div class="button digit">del</div>
+                <div class="button digit">=</div>
         </section>
-       </div>
     </main>
+    <script>
+        const botones = document.querySelectorAll('.button');
+        const inputs = document.querySelector('.inputs');
+        const signs = document.querySelectorAll('.digit');
+        const result = document.querySelector('.result');
+
+        let lista = [];
+        let arrayResult = [];
+
+        botones.forEach(boton => boton.addEventListener('click', (e)=>{
+            let pushed = boton.textContent;
+
+            if(pushed =="="||pushed =="+"||pushed =="÷"||pushed =="del"||pushed =="+/-"||pushed =="x"||pushed =="%"||pushed =="C"){
+                if(lista.length==0){
+                    return;
+                }else if(pushed == "+"){
+                    inputs.textContent += pushed;
+                    console.log(pushed)
+                    number = Number(lista.join(''));
+                    result.textContent = number;
+                    arrayResult.push(number);
+                    arrayResult.push('+');
+                    console.log(arrayResult)
+                    lista = [];
+                    
+                    console.log(lista)
+                }else if(pushed == "="){
+                    if(arrayResult.slice(-2) = "+"){
+                        number = Number(lista.join(''));
+                        arrayResult.push(number);
+                        console.log(arrayResult[0] + arrayResult.slice(-1));
+                        result.textContent = ''
+                    }
+                }
+            }else{
+                inputs.textContent += pushed;
+                lista.push(pushed)
+            }
+            }));
+        
+    </script>
 </body>
 </html>
