@@ -1,4 +1,7 @@
-let str = 'Hello';
+1
+2
+	
+var str = "Hello TecAdmin!";
+var newStr = str.slice(0, -1)
 
-str = str.substring(-1);
-console.log(str);
+console.log(newStr);

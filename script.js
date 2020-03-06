@@ -6,21 +6,10 @@ const result = document.querySelector('.result');
 
 let lista = [];
 let arrayResult = [];
-/*
-function sumaSign(pushed){
-    inputs.textContent += pushed;
-            console.log(pushed)
-            number = Number(lista.join(''));
-            result.textContent = number;
-            arrayResult.push(number);
-            arrayResult.push('+');
-            console.log(arrayResult)
-            lista = [];
-            
-            console.log(lista)
-}
-*/
+
 function equals(){
+    let deleted = inputs.textContent.slice(0, -1);
+    inputs.textContent = deleted;
     let operation = arrayResult.slice(-1)[0];
 
     lastNumber = Number(lista.join(''));
@@ -30,31 +19,46 @@ function equals(){
     arrayResult = [];
     
     if(operation == "+"){
-        result.textContent = num1 + num2;
-        arrayResult.push(num1 + num2)
+        let resultado = num1 + num2;
+        result.textContent = resultado;
+        arrayResult.push(resultado);
     }else if(operation == "-"){
-        result.textContent = num1 - num2;
+        let resultado = num1 - num2;
+        result.textContent = resultado;
+        arrayResult.push(resultado);
     }else if(operation == 'x'){
-        result.textContent = num1 * num2;
+        let resultado = num1 * num2;
+        result.textContent = resultado;
+        arrayResult.push(resultado);
     }else if(operation == "÷"){
-        result.textContent = num1 / num2;
+        let resultado = num1 / num2;
+        result.textContent = resultado;
+        arrayResult.push(resultado);
     }
 }
 
+function moresOps(pushed){
+    number = Number(lista.join(''));
+    arrayResult.push(number);
+    arrayResult.push(pushed);
+    lista = [];
+    
+    console.log('arrayResult',arrayResult);
+    console.log('lista', lista);
+}
 
 function checkOp(pushed){
     inputs.textContent += pushed;
     console.log(pushed);
 
     if(pushed == "+" || pushed == "-"||pushed =="x"||pushed =="÷" ){
-        if(pushed != lista.slice(-1)[0]){
-        number = Number(lista.join(''));
-        result.textContent = number;
-        arrayResult.push(number);
-        arrayResult.push(pushed);
-        console.log(arrayResult)
-        lista = [];
-        console.log(lista)
+        if((pushed != lista.slice(-1)[0]) && (arrayResult.length >= 2) && (lista.length == 1)){
+            equals();
+            moresOps(pushed)
+            inputs.textContent += pushed
+        }else if(pushed !== lista.slice(-1)[0]){
+            moresOps(pushed);
+
         }
     }else if(pushed == "C"){
         inputs.textContent = '';
@@ -70,20 +74,6 @@ function checkOp(pushed){
         console.log(lista)
     }
 }
-
-/*
-function multiplySing(pushed){
-    inputs.textContent += pushed;
-    console.log(pushed);
-    number = Number(lista.join(''));
-    result.textContent = number;
-    
-    console.log(arrayResult)
-    lista = [];
-    console.log(lista)
-}
-*/
-
 
 botones.forEach(boton => boton.addEventListener('click', ()=>{
     let pushed = boton.textContent;
@@ -122,3 +112,31 @@ botones.forEach(boton => boton.addEventListener('click', ()=>{
         lista = [];
         console.log(lista)
     */
+
+    /*
+function sumaSign(pushed){
+    inputs.textContent += pushed;
+            console.log(pushed)
+            number = Number(lista.join(''));
+            result.textContent = number;
+            arrayResult.push(number);
+            arrayResult.push('+');
+            console.log(arrayResult)
+            lista = [];
+            
+            console.log(lista)
+}
+*/
+
+/*
+function multiplySing(pushed){
+    inputs.textContent += pushed;
+    console.log(pushed);
+    number = Number(lista.join(''));
+    result.textContent = number;
+    
+    console.log(arrayResult)
+    lista = [];
+    console.log(lista)
+}
+*/
