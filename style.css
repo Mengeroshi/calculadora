@@ -15,7 +15,7 @@ body{
 
 main{
     height: 98vh;
-    width: 348.8px;
+    width: 25%;
     border: 1px solid #ff707e;
     display: flex;
     flex-direction: column;
@@ -23,14 +23,15 @@ main{
     border-radius: 5%;
     background-color: #0f084b;
     margin-top: 5px;
-    border-bottom-left-radius: 3%;
-    border-bottom-right-radius: 3%;
+    border-bottom-left-radius: 2%;
+    border-bottom-right-radius: 2%;
+    min-width: 280px;
 }
 
 .pantalla{
     height: 30%;
     width: 100%;
-    
+    border:1px solid #ff707e;
     display: flex;
     flex-direction: column;
     border-top-right-radius: 5%;
@@ -44,12 +45,13 @@ main{
     text-align: left;
     padding: 1rem;
     font-size: 2rem;
+    color: #ff939e
 }
 
 .pantalla .result{
     height: 40%;
     width: 100%;
-    color: #00f2bd;
+    color: #fa4c5d;
     font-size: 2.5rem;
     padding: 1rem;
     text-align: right;
